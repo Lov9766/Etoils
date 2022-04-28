@@ -7,46 +7,32 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import { auth } from "../db/dbconfig";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-function Login() {
-  const [loginemail, setLoginEmail] = useState("");
-  const [loginpassword, setLoginPassword] = useState("");
-  useEffect(() => {
-    auth.onAuthStateChanged(
-      users => {
-        if(users){
-          console.log(users)
-        }
-       }
-    )
-  
-    return () => {
-      second
-    }
-  }, [third])
-  
 
-  const login = async () => {
-    console.log(loginemail, loginpassword);
-    try {
-      // console.log(auth);
-      const users = await signInWithEmailAndPassword(
-        auth,
-        loginemail,
-        loginpassword
-      );
-      alert("login succesfully");
-      // console.log(login);
-       console.log(loginemail, loginpassword);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const logout = async () => {};
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import {auth} from "../db/dbconfig";
+
+
+function SignUp() {
+    const [registeremail, setRegisterEmail] = useState("");
+    const [registerpassword, setRegisterPassword] = useState("");
+
+    const register = async () => {
+      console.log(registeremail, registerpassword);
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          registeremail,
+          registerpassword
+        );
+        alert("sign up succesfully");
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
   return (
     <View
       style={{
+        marginBottom: 250,
         marginTop: 50,
         justifyContent: "center",
         alignItems: "center",
@@ -72,7 +58,7 @@ function Login() {
 
       <View>
         <Image
-          style={{ width: 200, height: 200, marginTop: 30 }}
+          style={{ width: 200, height: 200, marginTop: 20 }}
           source={require("./contect.webp")}
         />
       </View>
@@ -86,22 +72,32 @@ function Login() {
           alignItems: "center",
         }}
       >
-        <TextInput
-          placeholder={"Email"}
-          onChangeText={(Text) => setLoginEmail(Text)}
+        <View
           style={{
-            fontSize: 20,
-            paddingLeft: 70,
-            height: 48,
-            width: "70%",
-            borderWidth: 1,
-            borderRadius: 25,
+            width: "100%",
+            justifyContent: "center",
+            alignSelf: "center",
+            alignContent: "center",
+            alignItems: "center",
           }}
-        />
+        >
+          <TextInput
+            placeholder={"Email"}
+            onChangeText={(Text )=> setRegisterEmail(Text)}
+            style={{
+              fontSize: 20,
+              paddingLeft: 70,
+              height: 48,
+              width: "70%",
+              borderWidth: 1,
+              borderRadius: 25,
+            }}
+          />
+        </View>
 
         <TextInput
           placeholder={"Password"}
-          onChangeText={(Text) => setLoginPassword(Text)}
+          onChangeText={(Text) => setRegisterPassword(Text)}
           style={{
             fontSize: 20,
             paddingLeft: 70,
@@ -114,9 +110,9 @@ function Login() {
         />
       </View>
       <TouchableOpacity
-        onPress={
-          login
-        }
+        onPress={() => {
+          register();
+        }}
       >
         <Text
           style={{
@@ -131,21 +127,14 @@ function Login() {
             fontWeight: "bold",
           }}
         >
-          Login
+          Register
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {}}>
-        <Text
-          style={{
-            fontSize: 20,
-          }}
-        >
-          Forgot Password?
-        </Text>
-      </TouchableOpacity>
+      <Text style={{ fontSize: 30 }}>or</Text>
+      <Text style={{ fontSize: 20 }}>Register using</Text>
     </View>
   );
 }
 
-export default Login;
+export default SignUp;
