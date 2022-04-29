@@ -1,4 +1,5 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
+
 import {
   StyleSheet,
   Text,
@@ -7,58 +8,23 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import { auth } from "../db/dbconfig";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-function Login() {
-  const [loginemail, setLoginEmail] = useState("");
-  const [loginpassword, setLoginPassword] = useState("");
-  useEffect(() => {
-    auth.onAuthStateChanged(
-      users => {
-        if(users){
-          console.log(users)
-        }
-       }
-    )
-  
-    return () => {
-      
-    }
-  }, [])
-  
 
-  const login = async () => {
-    console.log(loginemail, loginpassword);
-    try {
-      // console.log(auth);
-      const users = await signInWithEmailAndPassword(
-        auth,
-        loginemail,
-        loginpassword
-      );
-      alert("login succesfully");
-      // console.log(login);
-       console.log(loginemail, loginpassword);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-  const logout = async () => {};
+function Admin() {
   return (
     <View
       style={{
-        marginTop: 50,
+        marginTop: 20,
         justifyContent: "center",
         alignItems: "center",
       }}
     >
       <Text
         style={{
-          fontSize: 50,
+          fontSize: 80,
           color: "black",
         }}
       >
-        welcome
+        Admin
       </Text>
 
       <Text
@@ -67,13 +33,13 @@ function Login() {
           color: "black",
         }}
       >
-        sign in to continue
+        Login to continue
       </Text>
 
       <View>
         <Image
           style={{ width: 200, height: 200, marginTop: 30 }}
-          source={require("./contect.webp")}
+          source={require("./user3.jpg")}
         />
       </View>
 
@@ -88,12 +54,11 @@ function Login() {
       >
         <TextInput
           placeholder={"Email"}
-          onChangeText={(Text) => setLoginEmail(Text)}
           style={{
             fontSize: 20,
             paddingLeft: 70,
             height: 48,
-            width: "70%",
+            width: 250,
             borderWidth: 1,
             borderRadius: 25,
           }}
@@ -101,12 +66,11 @@ function Login() {
 
         <TextInput
           placeholder={"Password"}
-          onChangeText={(Text) => setLoginPassword(Text)}
           style={{
             fontSize: 20,
             paddingLeft: 70,
             height: 48,
-            width: "70%",
+            width: 250,
             marginTop: 20,
             borderWidth: 1,
             borderRadius: 25,
@@ -114,9 +78,9 @@ function Login() {
         />
       </View>
       <TouchableOpacity
-        onPress={
-          login
-        }
+        onPress={() => {
+          console.log("Click here");
+        }}
       >
         <Text
           style={{
@@ -135,7 +99,11 @@ function Login() {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          console.log("Click here");
+        }}
+      >
         <Text
           style={{
             fontSize: 20,
@@ -147,5 +115,4 @@ function Login() {
     </View>
   );
 }
-
-export default Login;
+export default Admin;
