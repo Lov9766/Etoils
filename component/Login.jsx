@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text,TextInput, Image, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TextInput, Image, View, TouchableOpacity } from "react-native";
+
+import {auth} from "../db/firebase";
 
 function Login() {
   return (
@@ -44,7 +46,7 @@ function Login() {
           placeholder={'Email'}
           style={{
             fontSize: 20,
-            paddingLeft: 70,
+            paddingHorizontal: 95,
             height: 48,
             width: '70%',
             borderWidth: 1,
@@ -52,19 +54,31 @@ function Login() {
           }}
         />
 
+
+      </View>
+
+        <View
+        style={{
+          width: '100%',
+          justifyContent: 'center',
+          alignSelf: 'center',
+          alignContent: 'center',
+          alignItems: 'center',
+        }}>
+        
         <TextInput
           placeholder={'Password'}
           style={{
             fontSize: 20,
-            paddingLeft: 70,
+            paddingHorizontal:80,
             height: 48,
             width: '70%',
             marginTop: 20,
             borderWidth: 1,
             borderRadius: 25,
           }}
-        />
-      </View>
+          />
+          </View>
       <TouchableOpacity
         onPress={() => {
           console.log('Click here');
@@ -73,7 +87,7 @@ function Login() {
           style={{
             margin: 30,
             elevation: 5,
-            paddingHorizontal: 40,
+            paddingHorizontal: 80,
             paddingVertical: 7,
             color: 'black',
             backgroundColor: 'yellow',

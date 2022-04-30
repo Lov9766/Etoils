@@ -4,14 +4,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import Etoils from './component/Etoils';
 import Hello from './component/Hello';
 import Login from './component/Login';
+import SignUp from './component/Signup';
 
 export default function App() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       {/* <Etoils></Etoils> */}
       {/* <Hello></Hello> */}
-      <Login></Login>
-      <Text style={{ fontSize: 80 }}>Stack</Text>
+      {/* <Login></Login> */}
+      <SignUp/>
+      {/* <Text style={{ fontSize: 80 }}>Stack</Text> */}
     </View>
   );
 }
