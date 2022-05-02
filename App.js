@@ -15,12 +15,13 @@ export default function App() {
       {/* <Etoils></Etoils> */}
       {/* <Hello></Hello> */}
       {/* <Login></Login> */}
-      {/* <Signup/> */}
+      <Signup />
       {/* <Text style={{ fontSize: 80 }}>Stack</Text> */}
       {/* <Page /> */}
       {/* <Modeling/> */}
       {/* <Payment/> */}
-      <Admin/>
+      {/* <Admin/> */}
+      
     </View>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import AntDesign from "react-native-vector-icons/AntDesign";
+// import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+// import FontAwesome from "react-native-vector-icons/FontAwesome";
+// import AntDesign from "react-native-vector-icons/AntDesign";
 import {
   StyleSheet,
   Text,
@@ -42,7 +42,7 @@ function Payment() {
           marginTop: 30,
         }}
       >
-        <FontAwesome name="car" size={20} />
+        {/* <FontAwesome name="car" size={20} /> */}
         <TextInput
           placeholder="Driving Licence(Y/N)"
           style={{
@@ -52,11 +52,11 @@ function Payment() {
           }}
         />
       </View>
-      <View style={{ borderBottomWidth: 1, color: "gray" }}>
-        <FontAwesome5 name="user-tie" size={20} />
+      <View style={{ borderBottomWidth: 1, color: "gray", paddingTop: 20 }}>
+        {/* <FontAwesome5 name="user-tie" size={20} /> */}
         <TextInput
           placeholder="Name on card"
-          style={{ paddingLeft: 25, marginRight: 100, fontSize: 20 }}
+          style={{ marginRight: 135, fontSize: 20 }}
         />
       </View>
       <View
@@ -65,22 +65,27 @@ function Payment() {
           paddingTop: 15,
         }}
       >
-        <AntDesign name="mobile1" size={20} />
+        {/* <AntDesign name="mobile1" size={20} /> */}
         <TextInput
-          placeholder="Mobile"
+          placeholder="Expiry Date"
           style={{
             fontSize: 20,
             borderBottomWidth: 1,
-            paddingRight: 100,
+            paddingRight: 160,
           }}
         />
-        <FontAwesome name="whatsapp" size={20} />
+
+        {/* <FontAwesome name="whatsapp" size={20} style={{ marginRight: 5 }} /> */}
+      </View>
+
+      <View style={{}}>
         <TextInput
-          placeholder="Whatsapp"
+          placeholder="CVV"
           style={{
             fontSize: 20,
-
             borderBottomWidth: 1,
+            paddingRight: 210,
+            paddingTop: 10,
           }}
         />
       </View>
@@ -110,10 +115,12 @@ function Payment() {
       <View>
         <Text style={{ fontSize: 20, paddingTop: 15 }}>Pay using Gpay</Text>
       </View>
-      <Image
-        style={{width:50,height:50,marginBottom:40}}
-        source={require("./google-pay.png")}
-      />
+      <View style={{paddingTop:20}}>
+        <Image
+          style={{ width: 50, height: 50, marginBottom: 40 }}
+          source={require("./google-pay.png")}
+        />
+      </View>
     </View>
   );
 }
