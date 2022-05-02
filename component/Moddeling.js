@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 // import AntDesign from "react-native-vector-icons/AntDesign";
 // import Fontisto from "react-native-vector-icons/Fontisto";
 // import Checkbox from "@mui/material/Checkbox";
+import { db } from "../db/dbconfig";
+import {collection } from "firebase/firestore"
 
 import {
   StyleSheet,
