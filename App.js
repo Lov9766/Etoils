@@ -4,7 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Etoils from './component/Etoils';
 import Hello from './component/Hello';
 import Login from './component/Login';
-import SignUp from './component/Signup';
+import Signup from "./component/Signup";
+import Page from './component/Page';
+import Modeling from './component/Moddeling';
+import Payment from "./component/Payment";
+import Admin from "./component/Admin";
+import App1 from './component/Fileuploader';
 
 export default function App() {
   return (
@@ -12,8 +17,13 @@ export default function App() {
       {/* <Etoils></Etoils> */}
       {/* <Hello></Hello> */}
       {/* <Login></Login> */}
-      <SignUp/>
+      {/* <Signup/> */}
       {/* <Text style={{ fontSize: 80 }}>Stack</Text> */}
+      {/* <Page /> */}
+      {/* <Modeling/> */}
+      {/* <Payment/> */}
+      {/* <Admin/> */}
+      <App1/>
     </View>
   );
 }

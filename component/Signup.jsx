@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,20 +8,31 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-
-
-const Signup = () => { 
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
-
-};
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import {auth} from "../db/dbconfig";
 
 
 function SignUp() {
+    const [registeremail, setRegisterEmail] = useState("");
+    const [registerpassword, setRegisterPassword] = useState("");
+
+    const register = async () => {
+      console.log(registeremail, registerpassword);
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          registeremail,
+          registerpassword
+        );
+        alert("sign up succesfully");
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
   return (
     <View
       style={{
-        marginBottom: 50,
+        marginBottom: 250,
         marginTop: 50,
         justifyContent: "center",
         alignItems: "center",
@@ -61,33 +72,35 @@ function SignUp() {
           alignItems: "center",
         }}
       >
-        <TextInput
-          placeholder={"Email"}
+        <View
           style={{
-            fontSize: 20,
-            paddingHorizontal: 95,
-            height: 48,
-            width: "70%",
-            borderWidth: 1,
-            borderRadius: 25,
+            width: "100%",
+            justifyContent: "center",
+            alignSelf: "center",
+            alignContent: "center",
+            alignItems: "center",
           }}
-        />
-      </View>
+        >
+          <TextInput
+            placeholder={"Email"}
+            onChangeText={(Text )=> setRegisterEmail(Text)}
+            style={{
+              fontSize: 20,
+              paddingLeft: 70,
+              height: 48,
+              width: "70%",
+              borderWidth: 1,
+              borderRadius: 25,
+            }}
+          />
+        </View>
 
-      <View
-        style={{
-          width: "100%",
-          justifyContent: "center",
-          alignSelf: "center",
-          alignContent: "center",
-          alignItems: "center",
-        }}
-      >
         <TextInput
           placeholder={"Password"}
+          onChangeText={(Text) => setRegisterPassword(Text)}
           style={{
             fontSize: 20,
-            paddingHorizontal: 80,
+            paddingLeft: 70,
             height: 48,
             width: "70%",
             marginTop: 20,
@@ -95,12 +108,10 @@ function SignUp() {
             borderRadius: 25,
           }}
         />
-          </View>
-          
+      </View>
       <TouchableOpacity
-              onPress={() => {
-                  handl
-          console.log("Click here");
+        onPress={() => {
+          register();
         }}
       >
         <Text
