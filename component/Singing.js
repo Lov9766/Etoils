@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 // import Fontisto from "react-native-vector-icons/Fontisto";
 // import Checkbox from "@mui/material/Checkbox";
 import { db } from "../db/dbconfig";
-import {collection } from "firebase/firestore"
+import { collection } from "firebase/firestore";
 
 import {
   StyleSheet,
@@ -19,7 +19,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function Modeling() {
+function Singing({ navigation }) {
   // const label = { inputProps: { "aria-label": "Checkbox demo" } };
   // const [checked, setChecked] = React.useState(false);
   return (
@@ -29,10 +29,10 @@ function Modeling() {
           color: "#fff",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: 70,
+          // marginTop: 0
         }}
       >
-        <Text style={{ fontSize: 60, marginTop: 35 }}>Modeling</Text>
+        <Text style={{ fontSize: 30, marginTop: 35 }}>Singing</Text>
       </View>
       <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text style={{ fontSize: 17 }}>Please Fill the form below</Text>
@@ -91,7 +91,7 @@ function Modeling() {
           {/* <MaterialCommunityIcons name="human-male-height" size={20} /> */}
         </View>
 
-        <View>
+        {/* <View>
           <TextInput
             placeholder="Height"
             style={{
@@ -101,7 +101,7 @@ function Modeling() {
               paddingTop: 10,
             }}
           />
-        </View>
+        </View> */}
 
         <View
           style={{
@@ -142,7 +142,7 @@ function Modeling() {
           {/* <FontAwesome name="whatsapp" size={20} /> */}
         </View>
 
-        <View style={{ paddingTop: 10 }}>
+        {/* <View style={{ paddingTop: 10 }}>
           <TextInput
             placeholder="Whatsapp"
             style={{
@@ -151,7 +151,7 @@ function Modeling() {
               borderBottomWidth: 1,
             }}
           />
-        </View>
+        </View> */}
 
         <View
           style={{
@@ -173,8 +173,8 @@ function Modeling() {
           <TextInput placeholder="Email" style={{ fontSize: 20 }} />
         </View>
 
-        <View style={{ paddingTop: 10 }}>
-          {/* <Fontisto name="passport-alt" size={20} /> */}
+        {/* <View style={{ paddingTop: 10 }}>
+          
           <TextInput
             placeholder="Passport(Y/N)"
             style={{
@@ -183,7 +183,7 @@ function Modeling() {
               color: "black",
             }}
           />
-        </View>
+        </View> */}
 
         <View
           style={{
@@ -191,18 +191,18 @@ function Modeling() {
             paddingTop: 10,
           }}
         >
-          {/* <FontAwesome name="car" size={20} /> */}
+          
           <TextInput
             placeholder="Driving Licence(Y/N)"
             style={{
               fontSize: 20,
               color: "black",
-              /*paddingLeft: 60 */
+              
             }}
           />
         </View>
         <View>
-          <Text style={{ fontSize: 15, color: "gray" }}>
+          <Text style={{ fontSize: 15, color: "gray", marginBottom: 80 }}>
             Select the vehicles
           </Text>
           {/* <Checkbox {...label} defaultChecked /> */}
@@ -211,4 +211,4 @@ function Modeling() {
     </View>
   );
 }
-export default Modeling;
+export default Singing;

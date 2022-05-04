@@ -16,7 +16,7 @@ function SignUp() {
     const [registeremail, setRegisterEmail] = useState("");
     const [registerpassword, setRegisterPassword] = useState("");
 
-    const register = async () => {
+    const register = async ({ navigation }) => {
       console.log(registeremail, registerpassword);
       try {
         const user = await createUserWithEmailAndPassword(
@@ -25,6 +25,7 @@ function SignUp() {
           registerpassword
         );
         alert("sign up succesfully");
+        navigation.navigate("Login");
       } catch (err) {
         console.log(err.message);
       }

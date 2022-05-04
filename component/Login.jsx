@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { auth } from "../db/dbconfig";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-function Login() {
+function Login({navigation}) {
   const [loginemail, setLoginEmail] = useState("");
   const [loginpassword, setLoginPassword] = useState("");
   useEffect(() => {
@@ -17,6 +17,7 @@ function Login() {
       users => {
         if(users){
           console.log(users)
+          navigation.navigate("Modeling");
         }
        }
     )
@@ -29,6 +30,7 @@ function Login() {
 
   const login = async () => {
     console.log(loginemail, loginpassword);
+    // navigation.navigate('Login')
     try {
       // console.log(auth);
       const users = await signInWithEmailAndPassword(

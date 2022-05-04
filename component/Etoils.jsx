@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet,TouchableOpacity, Image,Text, View } from "react-native";
 
-function Etoils() {
+function Etoils({navigation}) {
   return (
     <View
       style={{
@@ -15,11 +15,7 @@ function Etoils() {
         source={require("./ETOILES.png")}
       />
 
-      <TouchableOpacity
-        onPress={() => {
-          console.log("Click here");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text
           style={{
             elevation: 5,
@@ -36,11 +32,8 @@ function Etoils() {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPree={() => {
-          console.log("Click here");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+  
         <Text
           style={{
             margin: 40,

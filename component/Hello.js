@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image, Text, View } from "react-native";
 
-function Hello() {
+function Hello({navigation}) {
   return (
     <View
       style={{
@@ -29,10 +29,7 @@ function Hello() {
       </Text>
 
       <TouchableOpacity
-        onPress={() => {
-          console.log("Click here");
-        }}
-      >
+        onPress={() => navigation.navigate("Modeling")}>
         <Text
           style={{
             elevation: 5,
