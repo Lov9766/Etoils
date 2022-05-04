@@ -32,7 +32,7 @@ function SignUp() {
   return (
     <View
       style={{
-        marginBottom: 250,
+        marginBottom: 60,
         marginTop: 50,
         justifyContent: "center",
         alignItems: "center",
@@ -53,12 +53,12 @@ function SignUp() {
           color: "black",
         }}
       >
-        sign in to continue
+        Register in to continue
       </Text>
 
       <View>
         <Image
-          style={{ width: 200, height: 200, marginTop: 20 }}
+          style={{ width: 150, height: 150, marginTop: 20 }}
           source={require("./contect.webp")}
         />
       </View>
@@ -83,12 +83,12 @@ function SignUp() {
         >
           <TextInput
             placeholder={"Email"}
-            onChangeText={(Text )=> setRegisterEmail(Text)}
+            onChangeText={(Text) => setRegisterEmail(Text)}
             style={{
               fontSize: 20,
-              paddingLeft: 70,
+              paddingLeft: 30,
               height: 48,
-              width: "70%",
+              width: 300,
               borderWidth: 1,
               borderRadius: 25,
             }}
@@ -97,13 +97,37 @@ function SignUp() {
 
         <TextInput
           placeholder={"Password"}
+          secureTextEntry={true}
           onChangeText={(Text) => setRegisterPassword(Text)}
           style={{
             fontSize: 20,
-            paddingLeft: 70,
+            paddingLeft: 30,
             height: 48,
-            width: "70%",
+            width: 300,
             marginTop: 20,
+            borderWidth: 1,
+            borderRadius: 25,
+          }}
+        />
+      </View>
+      <View
+        style={{
+          width: "100%",
+          justifyContent: "center",
+          alignSelf: "center",
+          alignContent: "center",
+          alignItems: "center",
+          paddingTop:20
+        }}
+      >
+        <TextInput
+          placeholder={"Conform Password"}
+          onChangeText={(Text) => setRegisterEmail(Text)}
+          style={{
+            fontSize: 20,
+            paddingLeft: 30,
+            height: 48,
+            width: 300,
             borderWidth: 1,
             borderRadius: 25,
           }}
@@ -118,8 +142,8 @@ function SignUp() {
           style={{
             margin: 30,
             elevation: 5,
-            paddingHorizontal: 40,
-            paddingVertical: 7,
+            paddingHorizontal: 20,
+            paddingVertical: 5,
             color: "black",
             backgroundColor: "yellow",
             borderRadius: 40,
@@ -131,8 +155,23 @@ function SignUp() {
         </Text>
       </TouchableOpacity>
 
-      <Text style={{ fontSize: 30 }}>or</Text>
-      <Text style={{ fontSize: 20 }}>Register using</Text>
+      <Text style={{ fontSize: 20 }}>or</Text>
+      <Text style={{ fontSize: 18, marginBottom: 20 }}>Register using</Text>
+      <View style={{ flexDirection: "row" }}>
+        <Image
+          style={{ width: 80, height: 80, marginBottom: 40 }}
+          source={require("./mail.png")}
+        />
+
+        <Image
+          style={{ width: 80, height: 80, marginBottom: 40, marginLeft: 30 }}
+          source={require("./fb.png")}
+        />
+      </View>
+      {/* <View style={{ flexDirection: "row", marginBottom: 10 }}>
+        <Text style={{ marginLeft: 40, fontSize: 20 }}>Gamil</Text>
+        <Text style={{ marginLeft: 40, fontSize: 20 }}>Facebok</Text>
+      </View> */}
     </View>
   );
 }

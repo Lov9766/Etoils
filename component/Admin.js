@@ -38,7 +38,7 @@ function Admin() {
 
       <View>
         <Image
-          style={{ width: 200, height: 200, marginTop: 30 }}
+          style={{ width: 150, height: 150, marginTop: 30 }}
           source={require("./user3.jpg")}
         />
       </View>
@@ -56,7 +56,7 @@ function Admin() {
           placeholder={"Email"}
           style={{
             fontSize: 20,
-            paddingLeft: 70,
+            paddingLeft: 20,
             height: 48,
             width: 250,
             borderWidth: 1,
@@ -68,7 +68,7 @@ function Admin() {
           placeholder={"Password"}
           style={{
             fontSize: 20,
-            paddingLeft: 70,
+            paddingLeft: 20,
             height: 48,
             width: 250,
             marginTop: 20,

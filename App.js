@@ -9,7 +9,7 @@ import Page from './component/Page';
 import Modeling from './component/Moddeling';
 import Payment from "./component/Payment";
 import Admin from "./component/Admin";
-import App1 from './component/Fileuploader';
+import Upload from "./component/Upload";
 
 export default function App() {
   return (
@@ -17,13 +17,14 @@ export default function App() {
       {/* <Etoils></Etoils> */}
       {/* <Hello></Hello> */}
       {/* <Login></Login> */}
-      {/* <Signup/> */}
+      {/* <Signup /> */}
       {/* <Text style={{ fontSize: 80 }}>Stack</Text> */}
       {/* <Page /> */}
       {/* <Modeling/> */}
       {/* <Payment/> */}
       {/* <Admin/> */}
-      <App1/>
+      <Upload/>
+      
     </View>
   );
 }

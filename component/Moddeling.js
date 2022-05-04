@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-import Entypo from "react-native-vector-icons/Entypo";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import Fontisto from "react-native-vector-icons/Fontisto";
+// import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+// import FontAwesome from "react-native-vector-icons/FontAwesome";
+// import Entypo from "react-native-vector-icons/Entypo";
+// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+// import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+// import AntDesign from "react-native-vector-icons/AntDesign";
+// import Fontisto from "react-native-vector-icons/Fontisto";
 // import Checkbox from "@mui/material/Checkbox";
+import { db } from "../db/dbconfig";
+import {collection, getDocs } from "firebase/firestore"
 
 import {
   StyleSheet,
@@ -18,8 +20,22 @@ import {
 } from "react-native";
 
 function Modeling() {
-  // const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  // const [checked, setChecked] = React.useState(false);
+
+  const [user, setUser] = useState([]);
+  const usercollection = collection(db,"user");
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await getDocs(usercollection);
+      const user = data.docs.map(doc => doc.data());
+      console.log(user);
+    };
+    getUser();
+    // return () => {
+    //   second
+    // }
+  },[])
+  
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -27,26 +43,26 @@ function Modeling() {
           color: "#fff",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: 70,
         }}
       >
-        <Text style={{ fontSize: 50, marginTop: 35 }}>Modeling</Text>
+        <Text style={{ fontSize: 60, marginTop: 35 }}>Modeling</Text>
       </View>
       <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text style={{ fontSize: 17 }}>Please Fill the form below</Text>
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 60, paddingRight: 50 }}>
-        <View style={{ borderBottomWidth: 1, color: "gray" }}>
-          <FontAwesome5 name="user-tie" size={20} />
-          <TextInput placeholder="Full Name" style={{ paddingLeft: 25 }} />
+        <View style={{ borderBottomWidth: 1, color: "gray", paddingTop: 10 }}>
+          {/* <FontAwesome5 name="user-tie" size={20} /> */}
+          <TextInput placeholder="Full Name" style={{ fontSize: 20 }} />
         </View>
 
         <View
           style={{
-            flexDirection: "row",
             paddingTop: 10,
           }}
         >
-          <Entypo name="cake" size={20} />
+          {/* <Entypo name="cake" size={20} /> */}
           <TextInput
             placeholder="Date of Birth"
             style={{
@@ -56,14 +72,16 @@ function Modeling() {
               paddingRight: 1,
             }}
           />
-          <FontAwesome5 name="user-tie" size={20} />
+          {/* <FontAwesome5 name="user-tie" size={20} /> */}
+        </View>
+        <View style={{ paddingTop: 10 }}>
           <TextInput
             placeholder="Age"
             style={{
               fontSize: 20,
               borderBottomWidth: 1,
-              marginLeft: 60,
-              paddingRight: 80,
+              // marginLeft: 60,
+              paddingRight: 0,
             }}
           />
         </View>
@@ -74,25 +92,27 @@ function Modeling() {
             paddingTop: 10,
           }}
         >
-          <MaterialCommunityIcons name="gender-male-female" size={20} />
+          {/* <MaterialCommunityIcons name="gender-male-female" size={20} /> */}
           <TextInput
             placeholder="Gender"
             style={{
               fontSize: 20,
               borderBottomWidth: 1,
               marginLeft: 1,
-              paddingRight: 70,
+              paddingRight: 195,
             }}
           />
-          <MaterialCommunityIcons name="human-male-height" size={20} />
+          {/* <MaterialCommunityIcons name="human-male-height" size={20} /> */}
+        </View>
+
+        <View>
           <TextInput
             placeholder="Height"
             style={{
               fontSize: 20,
               paddingLeft: 0,
               borderBottomWidth: 1,
-              marginLeft: 10,
-              paddingRight: 70,
+              paddingTop: 10,
             }}
           />
         </View>
@@ -100,45 +120,49 @@ function Modeling() {
         <View
           style={{
             borderBottomWidth: 1,
+            paddingTop: 10,
           }}
         >
-          <MaterialIcons name="location-pin" size={20} />
+          {/* <MaterialIcons name="location-pin" size={20} /> */}
           <TextInput placeholder="Current Location" style={{ fontSize: 20 }} />
         </View>
 
         <View
           style={{
+            paddingTop: 10,
             borderBottomWidth: 1,
             paMaterialIconsingTop: 15,
           }}
         >
-          <AntDesign name="star" size={20} />
+          {/* <AntDesign name="star" size={20} /> */}
           <TextInput placeholder="Experience" style={{ fontSize: 20 }} />
         </View>
 
         <View
           style={{
             flexDirection: "row",
-            paddingTop: 15,
+            paddingTop: 10,
           }}
         >
-          <AntDesign name="mobile1" size={20} />
+          {/* <AntDesign name="mobile1" size={20} /> */}
           <TextInput
             placeholder="Mobile"
             style={{
               fontSize: 20,
               borderBottomWidth: 1,
-              paddingRight: 110,
+              paddingRight: 198,
             }}
           />
-          <FontAwesome name="whatsapp" size={20} />
+          {/* <FontAwesome name="whatsapp" size={20} /> */}
+        </View>
+
+        <View style={{ paddingTop: 10 }}>
           <TextInput
             placeholder="Whatsapp"
             style={{
               fontSize: 20,
-              paddingLeft: 10,
+
               borderBottomWidth: 1,
-              marginLeft: 10,
             }}
           />
         </View>
@@ -149,22 +173,22 @@ function Modeling() {
             paddingTop: 15,
           }}
         >
-          <FontAwesome name="language" size={20} />
+          {/* <FontAwesome name="language" size={20} /> */}
           <TextInput placeholder="Languages" style={{ fontSize: 20 }} />
         </View>
 
         <View
           style={{
             borderBottomWidth: 1,
-            paddingTop: 1,
+            paddingTop: 10,
           }}
         >
-          <MaterialCommunityIcons name="email" size={20} />
+          {/* <MaterialCommunityIcons name="email" size={20} /> */}
           <TextInput placeholder="Email" style={{ fontSize: 20 }} />
         </View>
 
-        <View style={{ paddingTop: 5 }}>
-          <Fontisto name="passport-alt" size={20} />
+        <View style={{ paddingTop: 10 }}>
+          {/* <Fontisto name="passport-alt" size={20} /> */}
           <TextInput
             placeholder="Passport(Y/N)"
             style={{
@@ -178,9 +202,10 @@ function Modeling() {
         <View
           style={{
             borderBottomWidth: 1,
+            paddingTop: 10,
           }}
         >
-          <FontAwesome name="car" size={20} />
+          {/* <FontAwesome name="car" size={20} /> */}
           <TextInput
             placeholder="Driving Licence(Y/N)"
             style={{
@@ -194,7 +219,7 @@ function Modeling() {
           <Text style={{ fontSize: 15, color: "gray" }}>
             Select the vehicles
           </Text>
-          {/* <Checkbox {...label} defaultChecked /> */}
+      
         </View>
       </View>
     </View>

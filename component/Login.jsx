@@ -79,7 +79,7 @@ function Login() {
 
       <View
         style={{
-          width: "100%",
+          width: 350,
           justifyContent: "center",
           alignSelf: "center",
           alignContent: "center",
@@ -91,37 +91,27 @@ function Login() {
           onChangeText={(Text) => setLoginEmail(Text)}
           style={{
             fontSize: 20,
-            paddingHorizontal: 95,
+            paddingLeft: 30,
             height: 48,
-            width: "70%",
+            width: "90%",
             borderWidth: 1,
             borderRadius: 25,
           }}
         />
 
-
-      </View>
-
-        <View
-        style={{
-          width: '100%',
-          justifyContent: 'center',
-          alignSelf: 'center',
-          alignContent: 'center',
-          alignItems: 'center',
-        }}>
-        
-        <TextInput
+        <TextInput 
           placeholder={"Password"}
+           secureTextEntry={true}
           onChangeText={(Text) => setLoginPassword(Text)}
           style={{
             fontSize: 20,
-            paddingHorizontal:80,
+            paddingLeft: 30,
             height: 48,
-            width: "70%",
+            width: "90%",
             marginTop: 20,
             borderWidth: 1,
             borderRadius: 25,
+           
           }}
           />
           </View>
