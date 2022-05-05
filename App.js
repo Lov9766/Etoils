@@ -20,10 +20,10 @@ export default function App() {
       {/* <Signup /> */}
       {/* <Text style={{ fontSize: 80 }}>Stack</Text> */}
       {/* <Page /> */}
-      {/* <Modeling/> */}
+      <Modeling/>
       {/* <Payment/> */}
       {/* <Admin/> */}
-      <Upload/>
+      {/* <Upload/> */}
       
     </View>
   );

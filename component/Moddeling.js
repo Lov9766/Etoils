@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 // import Fontisto from "react-native-vector-icons/Fontisto";
 // import Checkbox from "@mui/material/Checkbox";
 import { db } from "../db/dbconfig";
-import {collection, getDocs } from "firebase/firestore"
+import {collection, getDocs,addDoc } from "firebase/firestore"
 
 import {
   StyleSheet,
@@ -21,16 +21,21 @@ import {
 
 function Modeling() {
 
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
   const usercollection = collection(db,"user");
 
+  const setUserData = async () => { 
+
+    await addDoc(usercollection, {})
+  }
+
   useEffect(() => {
-    const getUser = async () => {
+    const getUserData = async () => {
       const data = await getDocs(usercollection);
-      const user = data.docs.map(doc => doc.data());
+      const user = data.docs.map((doc) => ({ ...doc.data() }));
       console.log(user);
     };
-    getUser();
+    getUserData();
     // return () => {
     //   second
     // }
