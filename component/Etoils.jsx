@@ -5,7 +5,7 @@ function Etoils({navigation}) {
   return (
     <View
       style={{
-        marginTop: 150,
+        marginTop: 120,
         justifyContent: "center",
         alignItems: "center",
       }}

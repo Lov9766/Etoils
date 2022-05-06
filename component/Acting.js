@@ -19,7 +19,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-function Modeling() {
+function Acting() {
   // const label = { inputProps: { "aria-label": "Checkbox demo" } };
   // const [checked, setChecked] = React.useState(false);
   return (
@@ -32,7 +32,7 @@ function Modeling() {
           // marginTop: 0
         }}
       >
-        <Text style={{ fontSize: 40, marginTop: 10 }}>Modeling</Text>
+        <Text style={{ fontSize: 40, marginTop: 10 }}>Acting</Text>
       </View>
       <View style={{ justifyContent: "center", alignItems: "center" }}>
         <Text style={{ fontSize: 17 }}>Please Fill the form below</Text>
@@ -94,21 +94,6 @@ function Modeling() {
           <MaterialCommunityIcons name="gender-male-female" size={20} />
           <TextInput
             placeholder="Gender"
-            style={{ fontSize: 17, paddingLeft: 15 }}
-          />
-        </View>
-
-        <View
-          style={{
-            flexDirection: "row",
-            borderBottomWidth: 1,
-            color: "gray",
-            paddingTop: 8,
-          }}
-        >
-          <MaterialCommunityIcons name="human-male-height" size={20} />
-          <TextInput
-            placeholder="Height"
             style={{ fontSize: 17, paddingLeft: 15 }}
           />
         </View>
@@ -250,4 +235,4 @@ function Modeling() {
     </View>
   );
 }
-export default Modeling;
+export default Acting;

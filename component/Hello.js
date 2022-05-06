@@ -5,7 +5,7 @@ function Hello({navigation}) {
   return (
     <View
       style={{
-        marginTop: 100,
+        marginTop: 50,
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -28,8 +28,7 @@ function Hello({navigation}) {
         Select your option
       </Text>
 
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Modeling")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Modeling")}>
         <Text
           style={{
             elevation: 5,
@@ -48,11 +47,7 @@ function Hello({navigation}) {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() => {
-          console.log("Click here");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("Acting")}>
         <Text
           style={{
             margin: 30,
@@ -70,11 +65,7 @@ function Hello({navigation}) {
         </Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={() => {
-          console.log("Click here");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigation.navigate("Writing")}>
         <Text
           style={{
             margin: 30,
