@@ -1,4 +1,5 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import {AsyncStorage} from "@react-native-async-storage/async-storage";
 import {
   StyleSheet,
   Text,
@@ -14,6 +15,15 @@ import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 function Login({navigation}) {
   const [loginemail, setLoginEmail] = useState("");
   const [loginpassword, setLoginPassword] = useState("");
+  const storeData = async () => {
+  try {
+    await AsyncStorage.setItem("@storage_Key", loginemail);
+    setLoginEmail; ("");
+  } catch (e) {
+    // saving error
+  }
+  }
+  storeData();
   useEffect(() => {
     auth.onAuthStateChanged(
       users => {
@@ -47,7 +57,8 @@ function Login({navigation}) {
       console.log(err.message);
     }
   };
-  const logout = async () => {};
+  const logout = async () => { };
+  
   return (
     <View
       style={{
@@ -114,12 +125,11 @@ function Login({navigation}) {
               fontSize: 20,
               paddingLeft: 30,
               height: 48,
-              // width: "90%",
-              // borderWidth: 1,
-              // borderRadius: 25,
+              
             }}
           />
         </View>
+        
 
         <View
           style={{
@@ -138,7 +148,7 @@ function Login({navigation}) {
             size={40}
             style={{ backgroundColor: "yellow", borderRadius: 60 }}
           />
-        <TextInput
+        {/* <TextInput
           placeholder={"Password"}
           secureTextEntry={true}
           onChangeText={(Text) => setLoginPassword(Text)}
@@ -147,7 +157,7 @@ function Login({navigation}) {
             paddingLeft: 30,
             
           }}
-          />
+          /> */}
           </View>
       </View>
       <TouchableOpacity onPress={login}>

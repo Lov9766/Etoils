@@ -1,5 +1,5 @@
 package com.etoilsapp;
-
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -37,6 +37,13 @@ public class MainApplication extends Application implements ReactApplication {
       // packages.add(new MyReactNativePackage());
       return packages;
     }
+    @Override
+protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+      new AsyncStoragePackage()
+    );
+}
 
     @Override
     protected String getJSMainModuleName() {

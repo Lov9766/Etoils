@@ -17,9 +17,14 @@ import Audition from "./component/Audition";
 import Payment from "./component/Payment";
 import VideoUpload from "./component/VideoUpload";
 import Exit from "./component/Exit";
+// import { LogBox } from "react-native";
 
+// LogBox.ignoreWarnings([
+//   "Warning: Async Storage has been extracted from react-native core",
+// ]);
 
 export default function App() {
+  
   const Stacks = createNativeStackNavigator();
   return (
     <NavigationContainer>
@@ -38,17 +43,17 @@ export default function App() {
         {/* <Admin /> */}
         {/* </View> */}
         {/* <Singing/> */}
-        <Stacks.Screen name="Etoils" component={Etoils} />
-        <Stacks.Screen name="Login" component={Login}/>
+        {/* <Stacks.Screen name="Etoils" component={Etoils} /> */}
+        {/* <Stacks.Screen name="Login" component={Login}/>
         <Stacks.Screen name="Signup" component={Signup} />
         <Stacks.Screen name="Hello" component={Hello} />
         <Stacks.Screen name="Modeling" component={Modeling} />
         <Stacks.Screen name="Acting" component={Acting} />
         <Stacks.Screen name="Writing" component={Writing} />
-        <Stacks.Screen name="Audition" component={Audition} />
+        <Stacks.Screen name="Audition" component={Audition} /> */}
         <Stacks.Screen name="VideoUpload" component={VideoUpload} />
-        <Stacks.Screen name="Exit" component={Exit} />
-        <Stacks.Screen name="Payment" component={Payment} />
+        {/* <Stacks.Screen name="Exit" component={Exit} />
+        <Stacks.Screen name="Payment" component={Payment} /> */}
         
       </Stacks.Navigator>
     </NavigationContainer>
